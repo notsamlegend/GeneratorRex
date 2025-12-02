@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+  <defs>
+    <linearGradient id="filterGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Filter cartridge -->
+  <rect x="50" y="50" width="60" height="120" rx="8" fill="url(#filterGrad)" stroke="#333" stroke-width="2"/>
+  <!-- Filter pleats -->
+  <line x1="60" y1="60" x2="60" y2="160" stroke="#a93226" stroke-width="1"/>
+  <line x1="70" y1="60" x2="70" y2="160" stroke="#a93226" stroke-width="1"/>
+  <line x1="80" y1="60" x2="80" y2="160" stroke="#a93226" stroke-width="1"/>
+  <line x1="90" y1="60" x2="90" y2="160" stroke="#a93226" stroke-width="1"/>
+  <line x1="100" y1="60" x2="100" y2="160" stroke="#a93226" stroke-width="1"/>
+  <!-- Top cap -->
+  <ellipse cx="80" cy="50" rx="15" ry="8" fill="#d4a574" stroke="#333" stroke-width="1"/>
+  <!-- Bottom cap -->
+  <ellipse cx="80" cy="170" rx="15" ry="8" fill="#d4a574" stroke="#333" stroke-width="1"/>
+  <!-- Clean indicator -->
+  <circle cx="150" cy="70" r="12" fill="#27ae60" stroke="#333" stroke-width="1"/>
+  <text x="146" y="76" font-size="14" fill="#fff" font-weight="bold">NEW</text>
+</svg>

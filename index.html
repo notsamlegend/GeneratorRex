@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>GeneratorRex</title>
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="logo.svg">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+  <div class="brand">
+    <!-- Mini generator logo (inline SVG) -->
+    <svg class="mini-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <rect x="6" y="18" width="40" height="22" rx="3" fill="currentColor" opacity="0.95" />
+      <rect x="12" y="10" width="6" height="8" rx="1" fill="currentColor" />
+      <rect x="34" y="24" width="4" height="4" rx="1" fill="#fff" />
+      <rect x="28" y="24" width="4" height="4" rx="1" fill="#fff" />
+      <circle cx="50" cy="26" r="6" fill="none" stroke="currentColor" stroke-width="2" />
+      <rect x="46" y="30" width="8" height="6" rx="1" fill="currentColor" />
+    </svg>
+    <div class="brand-text">
+      <h1>GeneratorRex</h1>
+      <p style="font-size: 12px; color: var(--text-tertiary); margin-top: -5px;">A Martak Companies Brand</p>
+    </div>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="types.html">Types</a>
+    <a href="usage.html">Usage & Tips</a>
+    <a href="maintenance.html">Maintenance</a>
+    <a href="contacts.html">Contact</a>
+    <button class="theme-toggle" title="Toggle dark mode" aria-label="Toggle theme">🌙</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>Discover Power Solutions</h2>
+    <p>Explore our comprehensive guide to generators</p>
+    <button>Browse Now</button>
+    <button class="secondary">Learn More</button>
+  </div>
+</section>
+
+<div class="container">
+  <div class="content-section">
+    <h3>Popular Types</h3>
+    <div class="row">
+      <div class="card" style="background-image: url('portable.svg');">
+        <div class="card-title">Portable</div>
+      </div>
+      <div class="card" style="background-image: url('standby.svg');">
+        <div class="card-title">Standby</div>
+      </div>
+      <div class="card" style="background-image: url('inverter.svg');">
+        <div class="card-title">Inverter</div>
+      </div>
+      <div class="card" style="background-image: url('solar.svg');">
+        <div class="card-title">Solar</div>
+      </div>
+      <div class="card" style="background-image: url('wind.svg');">
+        <div class="card-title">Wind</div>
+      </div>
+      <div class="card" style="background-image: url('hybrid.svg');">
+        <div class="card-title">Hybrid</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h3>Getting Started</h3>
+    <div class="row">
+      <div class="card" style="background-image: url('fuel-types.svg');">
+        <div class="card-title">Fuel Types</div>
+      </div>
+      <div class="card" style="background-image: url('wattage-guide.svg');">
+        <div class="card-title">Wattage Guide</div>
+      </div>
+      <div class="card" style="background-image: url('safety-tips.svg');">
+        <div class="card-title">Safety Tips</div>
+      </div>
+      <div class="card" style="background-image: url('installation.svg');">
+        <div class="card-title">Installation</div>
+      </div>
+      <div class="card" style="background-image: url('troubleshooting.svg');">
+        <div class="card-title">Troubleshooting</div>
+      </div>
+      <div class="card" style="background-image: url('best-practices.svg');">
+        <div class="card-title">Best Practices</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h3>Maintenance</h3>
+    <div class="row">
+      <div class="card" style="background-image: url('oil-changes.svg');">
+        <div class="card-title">Oil Changes</div>
+      </div>
+      <div class="card" style="background-image: url('filter-care.svg');">
+        <div class="card-title">Filter Care</div>
+      </div>
+      <div class="card" style="background-image: url('storage.svg');">
+        <div class="card-title">Storage</div>
+      </div>
+      <div class="card" style="background-image: url('winter-prep.svg');">
+        <div class="card-title">Winter Prep</div>
+      </div>
+      <div class="card" style="background: linear-gradient(135deg, #16a085, #138d75);">
+        <div class="card-title">Seasonal Check</div>
+      </div>
+      <div class="card" style="background: linear-gradient(135deg, #d35400, #ba4a00);">
+        <div class="card-title">Repairs</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 GeneratorRex, A Martak Companies Division | Powering your life anywhere, anytime
+</footer>
+
+<script>
+  // Theme Toggle Functionality
+  function initThemeToggle() {
+    const toggleButton = document.querySelector('.theme-toggle');
+    if (!toggleButton) return;
+
+    // Check for saved theme preference or use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
+
+    // Apply initial theme
+    if (initialDark) {
+      document.documentElement.style.colorScheme = 'dark';
+      toggleButton.textContent = '☀️';
+      toggleButton.classList.add('dark-mode');
+    } else {
+      document.documentElement.style.colorScheme = 'light';
+      toggleButton.textContent = '🌙';
+      toggleButton.classList.remove('dark-mode');
+    }
+
+    // Toggle theme on button click
+    toggleButton.addEventListener('click', () => {
+      const isDarkMode = document.documentElement.style.colorScheme === 'dark';
+      
+      if (isDarkMode) {
+        document.documentElement.style.colorScheme = 'light';
+        localStorage.setItem('theme', 'light');
+        toggleButton.textContent = '🌙';
+        toggleButton.classList.remove('dark-mode');
+      } else {
+        document.documentElement.style.colorScheme = 'dark';
+        localStorage.setItem('theme', 'dark');
+        toggleButton.textContent = '☀️';
+        toggleButton.classList.add('dark-mode');
+      }
+    });
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (localStorage.getItem('theme') === null) {
+        const isDark = e.matches;
+        document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+        toggleButton.textContent = isDark ? '☀️' : '🌙';
+        toggleButton.classList.toggle('dark-mode', isDark);
+      }
+    });
+  }
+
+  // Initialize theme on page load
+  document.addEventListener('DOMContentLoaded', initThemeToggle);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+  } else {
+    initThemeToggle();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Usage & Tips | GeneratorRex</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .page-hero {
+    margin-top: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+  }
+
+  .page-hero h2 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .page-hero p {
+
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0;
+  }
+
+  .content-area {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .content-area h2 {
+    font-size: 32px;
+    color: #e50914;
+    margin-bottom: 25px;
+  }
+
+  .content-area ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .content-area li {
+    background: white;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #e50914;
+    line-height: 1.7;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+    color: #000000;
+  }
+
+  .content-area li strong {
+    color: #000000;
+  }
+
+  .content-area li:hover {
+    transform: translateX(8px);
+  }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <a href="index.html" style="text-decoration: none; color: inherit;">
+      <h1>GeneratorRex</h1>
+      <p style="font-size: 12px; color: #999; margin-top: -5px;">A Martak Companies Brand</p>
+    </a>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="types.html">Types</a>
+    <a href="usage.html">Usage & Tips</a>
+    <a href="maintenance.html">Maintenance</a>
+    <a href="contacts.html">Contact</a>
+    <button class="theme-toggle" title="Toggle dark mode" aria-label="Toggle theme">🌙</button>
+  </nav>
+</header>
+
+<section class="page-hero">
+  <h2>Usage & Safety Tips</h2>
+  <p>Best practices for safe and efficient generator operation</p>
+</section>
+
+<div class="content-area">
+  <h2>Using Generators Safely</h2>
+  <ul>
+    <li><strong>Location Matters:</strong> Always operate generators outdoors in well-ventilated areas to prevent carbon monoxide poisoning. Never run them indoors, in garages, or in enclosed spaces.</li>
+    <li><strong>Protect from Elements:</strong> Keep the unit dry and protected from rain, snow, or water. Use a canopy or shelter, but ensure adequate ventilation to prevent overheating.</li>
+    <li><strong>Proper Wiring:</strong> Use properly rated extension cords and avoid overloading the generator. Check cord integrity regularly and never run cords through water.</li>
+    <li><strong>Safe Refueling:</strong> Turn off the generator and let it cool completely before refueling to prevent fires. Store fuel in approved containers away from the generator.</li>
+    <li><strong>Read the Manual:</strong> Carefully review your generator's owner's manual and understand all specifications, safety features, and maintenance requirements before operating.</li>
+    <li><strong>Regular Inspection:</strong> Check for fuel leaks, loose connections, and damaged components before each use. Address any issues immediately.</li>
+    <li><strong>Grounding:</strong> Properly ground your generator to prevent electrical hazards. Follow manufacturer guidelines for grounding procedures.</li>
+  </ul>
+</div>
+
+<footer>
+  &copy; 2025 GeneratorRex, A Martak Companies Division | Powering your life anywhere, anytime
+</footer>
+
+<script>
+  // Theme Toggle Functionality
+  function initThemeToggle() {
+    const toggleButton = document.querySelector('.theme-toggle');
+    if (!toggleButton) return;
+
+    // Check for saved theme preference or use system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialDark = savedTheme === 'dark' || (savedTheme === null && prefersDark);
+
+    // Apply initial theme
+    if (initialDark) {
+      document.documentElement.style.colorScheme = 'dark';
+      toggleButton.textContent = '☀️';
+      toggleButton.classList.add('dark-mode');
+    } else {
+      document.documentElement.style.colorScheme = 'light';
+      toggleButton.textContent = '🌙';
+      toggleButton.classList.remove('dark-mode');
+    }
+
+    // Toggle theme on button click
+    toggleButton.addEventListener('click', () => {
+      const isDarkMode = document.documentElement.style.colorScheme === 'dark';
+      
+      if (isDarkMode) {
+        document.documentElement.style.colorScheme = 'light';
+        localStorage.setItem('theme', 'light');
+        toggleButton.textContent = '🌙';
+        toggleButton.classList.remove('dark-mode');
+      } else {
+        document.documentElement.style.colorScheme = 'dark';
+        localStorage.setItem('theme', 'dark');
+        toggleButton.textContent = '☀️';
+        toggleButton.classList.add('dark-mode');
+      }
+    });
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (localStorage.getItem('theme') === null) {
+        const isDark = e.matches;
+        document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+        toggleButton.textContent = isDark ? '☀️' : '🌙';
+        toggleButton.classList.toggle('dark-mode', isDark);
+      }
+    });
+  }
+
+  // Initialize theme on page load
+  document.addEventListener('DOMContentLoaded', initThemeToggle);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+  } else {
+    initThemeToggle();
+  }
+</script>
+</body>
+</html>
